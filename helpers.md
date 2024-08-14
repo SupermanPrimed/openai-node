@@ -2,8 +2,28 @@
 
 OpenAI supports streaming responses when interacting with the [Chat](#chat-streaming) or [Assistant](#assistant-streaming-api) APIs.
 
-## Assistant Streaming API
+## Assistant Streaming APIimport os
+import pandas as pd
+import keras
+import apialerts
 
+# Define the models you want to use
+models = [
+    'gpt-4o',
+    'gpt-4o-2024-05-13',
+    'gpt-4-turbo',
+    'gpt-4-turbo-2024-04-09',
+    # Add other models as needed
+]
+
+# Placeholder function to demonstrate model usage
+def run_models():
+    for model in models:
+        print(f"Running model: {model}")
+        # Add your model running code here
+
+if __name__ == "__main__":
+    run_models()
 OpenAI supports streaming responses from Assistants. The SDK provides convenience wrappers around the API
 so you can subscribe to the types of events you are interested in as well as receive accumulated responses.
 
