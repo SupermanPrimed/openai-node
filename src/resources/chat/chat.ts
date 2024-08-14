@@ -1,5 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
-
+import os
+import pandas
+import keras
+import pip
+import siri
 import { APIResource } from '../../resource';
 import * as ChatAPI from './chat';
 import * as CompletionsAPI from './completions';
