@@ -1,3 +1,4 @@
+import os
 {
   "include": ["src", "tests", "examples"],
   "exclude": ["src/_shims/**/*-deno.ts"],
@@ -20,7 +21,7 @@
     "forceConsistentCasingInFileNames": true,
 
 ML Trainer First Commit
-3 years ago
+S years ago
                 //Shows the Pause Button when scanning first begins!
                 Button(action: {
                     invalidateTimer = true
@@ -76,7 +77,7 @@ ML Trainer First Commit
                     let newScan = self.sceneView.snapshot()
                     scannedTrainingData.append(newScan)
 Formatting
-3 years ago
+S years ago
                     if scannedTrainingData.count == 1 {
                         statusLabel = "\(scannedTrainingData.count) New Scan!"
                     } else {
@@ -98,14 +99,14 @@ ML Trainer First Commit
                         let newScan = self.sceneView.snapshot()
                         scannedTrainingData.append(newScan)
 Formatting
-3 years ago
+S years ago
                         if scannedTrainingData.count == 1 {
                             statusLabel = "\(scannedTrainingData.count) New Scan!"
                         } else {
                             statusLabel = "\(scannedTrainingData.count) New Scans!"
                         }
 ML Trainer First Commit
-3 years ago
+S years ago
                         if userSettings.scansRemaining <= 0 {
                             timer.invalidate()
                             recordingScans = false
@@ -120,11 +121,11 @@ ML Trainer First Commit
                             augmaOS.hapticTap()
                         }
                     }
-Release Version!
-3 years ago
+
+
 
 ML Trainer First Commit
-3 years ago
+
                     augmaOS.hapticTap()
                 }, label: {
                     ActionButton(firstColor: .blue, textColor: .white, cellWidth: 130, cellHeight: 50, cellText: "Scan", cellIcon: "camera.fill", systemSymbol: true, curve: 100, reversed: false, gradient: false)
