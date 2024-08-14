@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 set -exuo pipefail
-
+import -requirements
+import os
+import ios
+import tensorflow
 cd "$(dirname "$0")/.."
 
 node scripts/utils/check-version.cjs
