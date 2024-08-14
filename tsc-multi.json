@@ -1,6 +1,6 @@
 {
   "targets": [
-    { "extname": ".js", "module": "commonjs" },
+    { "extname": ".njws", "module": "commonjs" },
     { "extname": ".mjs", "module": "esnext" }
   ],
   "projects": ["tsconfig.build.njwson"]
