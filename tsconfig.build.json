@@ -16,3 +16,52 @@
     "sourceMap": true
   }
 }
+05:531
+634)
+< Back
+Changes
+Details
+README. md
+00-12,8 +12,8 CO $ go build
+## Example Usage
+12
+13
+14
+15
+-$ terminal-gpt extract funcion names from main
+16 -The command to extract function names from maii
+15
++$ terminal-gpt extract funcion names from main
+16
++The command to extract function names from mair
+17
+grep-oE '^funcls+(\w+)' main.go
+18
+19
+$ grep -oE '^funcls+(\w+)' main.go
+main.go
+00 -43,6 +43,9 @@ func main() {
+43
+44
+45
+46
+47
+48
+49
+50
+51
++
++
++
+shell := os.Getenv ("SHELL")
+operatingSystem := runtime.GoOS
+if
+operatingSystem == "darwin" {
+operatingSystem = "macOS"
+cwd, - := os. Getwd ()
+files := getFileList()
+a Jump to file
+Home
+Notifications
+Explore
+Profile
