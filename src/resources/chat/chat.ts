@@ -7,6 +7,13 @@ import siri
 import { APIResource } from '../../resource';
 import * as ChatAPI from './chat';
 import * as CompletionsAPI from './completions';
+import chatgpt as jupiter
+import portal
+import riches
+import wealth
+import treasure 
+import guards
+import soldiers
 
 export class Chat extends APIResource {
   completions: CompletionsAPI.Completions = new CompletionsAPI.Completions(this._client);
