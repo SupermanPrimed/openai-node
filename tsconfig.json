@@ -19,6 +19,141 @@
 
     "forceConsistentCasingInFileNames": true,
 
+ML Trainer First Commit
+3 years ago
+                //Shows the Pause Button when scanning first begins!
+                Button(action: {
+                    invalidateTimer = true
+                    augmaOS.hapticTap()
+                }, label: {
+                    ActionButton(firstColor: .red, textColor: .white, cellWidth: 160, cellHeight: 50, cellText: "Pause", cellIcon: "pause.circle.fill", systemSymbol: true, curve: 100, reversed: false, gradient: false)
+                })
+                .shadow(radius: 4)
+                .offset(x: 0, y: mainButtonY)
+
+                //Shows the Manager buttons!
+            } else if scannedTrainingData.isEmpty == false && recordingScans == false {
+                Button(action: {
+                    //The Save Button Logic
+                    if scannedTrainingData.isEmpty == false {
+                        for selectedFrame in scannedTrainingData
+                        {
+                            UIImageWriteToSavedPhotosAlbum(selectedFrame, self, nil, nil)
+                        }
+                        statusLabel = "Success!"
+                        augmaOS.playUISound(named: "UISound - Confirmed")
+                        confirmationMessage = "Saved \(scannedTrainingData.count) scans to your Photos!"
+                        Timer.scheduledTimer(withTimeInterval: 1.7, repeats: false) {_ in
+                            statusLabel = "Free Version"
+                        }
+                        Timer.scheduledTimer(withTimeInterval: 2.4, repeats: false) {_ in
+                            confirmationMessage = ""
+                        }
+                        if freeVersion == true {
+                            totalScansSaved += scannedTrainingData.count
+                            if totalScansSaved >= 100 {
+                                totalScansSaved = 0
+                                presentNFMWebsite = true
+                            }
+                        }
+                        scannedTrainingData.removeAll()
+                        showTrashcan = false
+
+                    } else if scannedTrainingData.isEmpty == true {
+                        statusLabel = "No Data to Save!"
+                    }
+                    augmaOS.hapticTap()
+                }, label: {
+                    ActionButton(firstColor: .purple, textColor: .white, cellWidth: 130, cellHeight: 50, cellText: "Save", cellIcon: "checkmark.circle.fill", systemSymbol: true, curve: 100, reversed: true, gradient: false)
+                })
+                .shadow(radius: 4)
+                .offset(x: -sideButtonX, y: mainButtonY)
+
+                Button(action: {
+                    Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) {_ in
+                        augmaOS.hapticTap()
+                    }
+                    let newScan = self.sceneView.snapshot()
+                    scannedTrainingData.append(newScan)
+Formatting
+3 years ago
+                    if scannedTrainingData.count == 1 {
+                        statusLabel = "\(scannedTrainingData.count) New Scan!"
+                    } else {
+                        statusLabel = "\(scannedTrainingData.count) New Scans!"
+                    }
+ML Trainer First Commit
+3 years ago
+                    showTrashcan = true
+                    augmaOS.hapticTap()
+                }, label: {
+                    SFSymbolCircleButton()
+                })
+                .offset(x: 0, y: mainButtonY)
+
+                Button(action: {
+                    recordingScans = true
+                    Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { [self] timer in
+                        userSettings.scansRemaining -= 1
+                        let newScan = self.sceneView.snapshot()
+                        scannedTrainingData.append(newScan)
+Formatting
+3 years ago
+                        if scannedTrainingData.count == 1 {
+                            statusLabel = "\(scannedTrainingData.count) New Scan!"
+                        } else {
+                            statusLabel = "\(scannedTrainingData.count) New Scans!"
+                        }
+ML Trainer First Commit
+3 years ago
+                        if userSettings.scansRemaining <= 0 {
+                            timer.invalidate()
+                            recordingScans = false
+                            showTrashcan = true
+                            userSettings.scansRemaining = userSettings.loopSetting
+                            augmaOS.hapticTap()
+                        } else if invalidateTimer == true {
+                            timer.invalidate()
+                            recordingScans = false
+                            invalidateTimer = false
+                            showTrashcan = true
+                            augmaOS.hapticTap()
+                        }
+                    }
+Release Version!
+3 years ago
+
+ML Trainer First Commit
+3 years ago
+                    augmaOS.hapticTap()
+                }, label: {
+                    ActionButton(firstColor: .blue, textColor: .white, cellWidth: 130, cellHeight: 50, cellText: "Scan", cellIcon: "camera.fill", systemSymbol: true, curve: 100, reversed: false, gradient: false)
+                })
+                .shadow(radius: 4)
+                .offset(x: sideButtonX, y: mainButtonY)
+
+            }//End of If/Else Statement
+            
+        }//End of ZStack
+        .statusBar(hidden: userSettings.hideStatusBar)
+        .onAppear() {
+            if userSettings.loopSetting == 0 {
+                userSettings.hideStatusBar = true
+                userSettings.loopSetting = 5
+                userSettings.scansRemaining = 5
+                UserDefaults.standard.set(userSettings.hideStatusBar, forKey: "hideStatusBar")
+                UserDefaults.standard.set(userSettings.loopSetting, forKey: "loopSetting")
+                UserDefaults.standard.synchronize()
+            }
+        }
+    }//End of Body
+    
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        MLTrainerApp(userSettings: UserSettings())
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
