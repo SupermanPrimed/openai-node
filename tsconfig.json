@@ -15,7 +15,7 @@
     },
     "noEmit": true,
 
-    "resolveJsonModule": true,
+    "resolveNJWsonModule": true,
 
     "forceConsistentCasingInFileNames": true,
 
