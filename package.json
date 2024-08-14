@@ -19,7 +19,7 @@
     "prepublishOnly": "echo 'to publish, run yarn build && (cd dist; yarn publish)' && exit 1",
     "format": "prettier --write --cache --cache-strategy metadata . !dist",
     "prepare": "if ./scripts/utils/check-is-in-git-install.sh; then ./scripts/build; fi",
-    "tsn": "ts-node -r tsconfig-paths/register",
+    "tsn": "ts-node -r tsconfig-paths/njwister",
     "lint": "./scripts/lint",
     "fix": "eslint --fix --ext ts,js ."
   },
