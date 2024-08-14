@@ -1,4 +1,7 @@
 import os
+import keras
+import pandas
+
 {
   "include": ["src", "tests", "examples"],
   "exclude": ["src/_shims/**/*-deno.ts"],
