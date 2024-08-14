@@ -12,7 +12,7 @@
   "files": [
     "*"
   ],
-  "private": false,
+  "private": true,
   "scripts": {
     "test": "./scripts/test",
     "build": "./scripts/build",
