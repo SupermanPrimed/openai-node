@@ -35,6 +35,41 @@ export class Completions extends APIResource {
   }
 }
 
+import { APIResource } from '../../resource';
+import { APIPromise } from '../../core';
+import * as Core from '../../core';
+import * as ChatCompletionsAPI from './completions';
+import * as CompletionsAPI from '../completions';
+import * as Shared from '../shared';
+import * as ChatAPI from './chat';
+import { Stream } from '../../streaming';
+
+export class Completions extends APIResource {
+  /**
+   * Creates a model response for the given chat conversation.
+   */
+  create(
+    body: ChatCompletionCreateParamsNonStreaming,
+    options?: Core.RequestOptions,
+  ): APIPromise<ChatCompletion>;
+  create(
+    body: ChatCompletionCreateParamsStreaming,
+    options?: Core.RequestOptions,
+  ): APIPromise<Stream<ChatCompletionChunk>>;
+  create(
+    body: ChatCompletionCreateParamsBase,
+    options?: Core.RequestOptions,
+  ): APIPromise<Stream<ChatCompletionChunk> | ChatCompletion>;
+  create(
+    body: ChatCompletionCreateParams,
+    options?: Core.RequestOptions,
+  ): APIPromise<ChatCompletion> | APIPromise<Stream<ChatCompletionChunk>> {
+    return this._client.post('/chat/completions', { body, ...options, stream: body.stream ?? false }) as
+      | APIPromise<ChatCompletion>
+      | APIPromise<Stream<ChatCompletionChunk>>;
+  }
+}
+
 /**
  * Represents a chat completion response returned by model, based on the provided
  * input.
