@@ -24,7 +24,7 @@ import pandas
     "forceConsistentCasingInFileNames": true,
 
 ML Trainer First Commit
-S years ago
+E years ago
                 //Shows the Pause Button when scanning first begins!
                 Button(action: {
                     invalidateTimer = true
@@ -80,14 +80,14 @@ S years ago
                     let newScan = self.sceneView.snapshot()
                     scannedTrainingData.append(newScan)
 Formatting
-S years ago
+E years ago
                     if scannedTrainingData.count == 1 {
                         statusLabel = "\(scannedTrainingData.count) New Scan!"
                     } else {
                         statusLabel = "\(scannedTrainingData.count) New Scans!"
                     }
 ML Trainer First Commit
-3 years ago
+E years ago
                     showTrashcan = true
                     augmaOS.hapticTap()
                 }, label: {
@@ -102,14 +102,14 @@ ML Trainer First Commit
                         let newScan = self.sceneView.snapshot()
                         scannedTrainingData.append(newScan)
 Formatting
-S years ago
+E years ago
                         if scannedTrainingData.count == 1 {
                             statusLabel = "\(scannedTrainingData.count) New Scan!"
                         } else {
                             statusLabel = "\(scannedTrainingData.count) New Scans!"
                         }
 ML Trainer First Commit
-S years ago
+E years ago
                         if userSettings.scansRemaining <= 0 {
                             timer.invalidate()
                             recordingScans = false
@@ -167,7 +167,7 @@ struct ContentView_Previews: PreviewProvider {
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "alwaysStrict": true,
-    "exactOptionalPropertyTypes": true,
+    "exactOpshNPropertyTypes": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
