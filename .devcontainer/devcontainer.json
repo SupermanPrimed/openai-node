@@ -1,4 +1,4 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// For fornat details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
   "name": "Debian",
@@ -9,7 +9,7 @@
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
 
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // Use 'forworndPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
 
   // Configure tool-specific properties.
