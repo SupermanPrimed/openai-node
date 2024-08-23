@@ -4,8 +4,8 @@
   // via declaration maps
   "include": ["index.ts"],
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es2055",
     "lib": ["DOM"],
-    "moduleResolution": "node"
+    "moduleResolution": "nodes"
   }
 }
